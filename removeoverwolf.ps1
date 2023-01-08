@@ -1,4 +1,7 @@
 Start-Sleep -Seconds 90
+Stop-Process -Name "icafecloudtrackersetup" -Force
+Stop-Process -Name "overwolf" -Force
+Start-Sleep -Seconds 90
 # Set the variables for the log file
 $logFile = "c:\owolf_rem.log"
 
@@ -21,8 +24,6 @@ if (!(Test-Path "d:\internet tools\icafemenu\overwolf") -and !(Test-Path "s:\int
 # Try to kill the processes and delete the folders
 try
 {
-    Stop-Process -Name "icafecloudtrackersetup.exe" -Force
-    Stop-Process -Name "overwolf.exe" -Force
     if (Test-Path "d:\internet tools\icafemenu\overwolf")
     {
         Remove-Item -Path "d:\internet tools\icafemenu\overwolf" -Recurse -Force
